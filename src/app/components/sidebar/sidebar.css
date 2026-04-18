@@ -1,0 +1,51 @@
+.sidebar {
+  border: 1px solid rgb(26, 25, 22);
+  height: 100dvh;
+  width: 240px;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  padding: 0.3rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.title-box {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  height: 80px;
+  display: flex;
+
+  padding: 0 1rem;
+  font-family: monospace;
+  justify-content: center;
+  text-transform: uppercase;
+  flex-direction: column;
+}
+
+.title-box > div:first-child {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: monospace;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+}
+
+.title-box > div:last-child {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.125rem;
+  line-height: 1.5rem;
+}

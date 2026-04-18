@@ -1,0 +1,6 @@
+<button [ngClass]="[current() ? 'button-current' : 'button']">
+  <div class="button-name">{{ label() }}</div>
+  @if (count()) {
+    <div class="counter">{{ count() }}</div>
+  }
+</button>

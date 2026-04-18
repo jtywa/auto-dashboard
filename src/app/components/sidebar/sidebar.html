@@ -1,0 +1,20 @@
+<div class="sidebar">
+  <div>
+    <div class="title-box">
+      <div>IDKAUTO</div>
+      <div>Service Dashboard</div>
+    </div>
+
+    <section>
+      <div class="label">Work</div>
+      <app-nav-button label="Service Queue" [current]="true" [count]="5" />
+      <app-nav-button label="Completed Today" [count]="3" />
+    </section>
+    <section>
+      <div class="label">Team</div>
+      <app-nav-button label="Technicians" />
+      <app-nav-button label="Reports" />
+    </section>
+  </div>
+  <app-user-box />
+</div>
