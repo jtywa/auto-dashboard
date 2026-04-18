@@ -1,0 +1,40 @@
+.header {
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  justify-content: space-between;
+}
+
+.header > div {
+  display: flex;
+  align-items: center;
+}
+
+.header > div:first-child {
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: semibold;
+}
+
+.header > div:last-child {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.7rem;
+}
+
+.header > div:last-child > div {
+  font-family: monospace;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.03rem;
+}
+
+button {
+  background-color: black;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: monospace;
+  font-size: 0.7rem;
+}

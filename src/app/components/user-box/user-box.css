@@ -4,6 +4,16 @@
   border-top: 1px solid #333;
   padding: 1rem;
   gap: 1rem;
+  transition: background-color 0.1s;
+  cursor: pointer;
+}
+
+.user-box:hover {
+  background-color: #252221;
+}
+
+.user-box:hover .avatar {
+  background-color: #111;
 }
 
 .avatar {
@@ -16,6 +26,7 @@
   justify-content: center;
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.1s;
 }
 
 .name {
