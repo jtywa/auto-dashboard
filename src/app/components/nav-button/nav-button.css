@@ -6,7 +6,6 @@ button {
   align-items: center;
   width: 100%;
   transition: all 0.1s;
-  cursor: pointer;
   color: rgba(255, 255, 255, 0.9);
   border-left: 3px solid transparent;
 }

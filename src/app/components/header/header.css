@@ -2,8 +2,9 @@
   border-bottom: 2px solid black;
   display: flex;
   align-items: center;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 1.5rem;
   justify-content: space-between;
+  background-color: #fff;
 }
 
 .header > div {
@@ -37,4 +38,8 @@ button {
   color: rgba(255, 255, 255, 0.9);
   font-family: monospace;
   font-size: 0.7rem;
+}
+
+button:hover {
+  opacity: 0.8;
 }

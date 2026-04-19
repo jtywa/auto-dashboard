@@ -23,11 +23,9 @@ section {
 }
 
 .title-box {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   height: 80px;
   display: flex;
-
   padding: 0 1rem;
   font-family: monospace;
   justify-content: center;

@@ -1,0 +1,58 @@
+.card {
+  background: #fff;
+  padding: 1rem 1rem 1.5rem;
+  border: 1px solid #ddd;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.car-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.car-info > div:first-child,
+.entry > div:first-child {
+  font-size: 0.65rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.car-info > div:nth-child(2) {
+  font-size: 1.2rem;
+}
+
+/* status badge */
+.car-info > div:last-child {
+  border: 1px solid rgb(33, 62, 155);
+  color: rgb(33, 62, 155);
+  background-color: rgb(227, 232, 250);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.service,
+.entry > div:last-child {
+  font-family: monospace;
+  color: #444;
+  font-size: 0.8rem;
+}
+
+.entries {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

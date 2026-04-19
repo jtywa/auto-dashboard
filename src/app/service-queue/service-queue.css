@@ -1,0 +1,80 @@
+.container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.metrics {
+  background-color: #bbb;
+  padding: 1px;
+  display: flex;
+  gap: 1px;
+}
+
+.card {
+  height: 100px;
+  background: #fdfdfd;
+  flex-grow: 1;
+}
+
+.title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.title > div:first-child {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.title > div:last-child {
+  font-size: 0.7rem;
+  color: #777;
+  font-family: monospace;
+}
+
+.filters {
+  padding: 0;
+  border-top: 2px solid black;
+  display: flex;
+  gap: 1px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.filters > button {
+  background: transparent;
+  border: none;
+  font-family: monospace;
+  letter-spacing: 0.025rem;
+  font-size: 0.65rem;
+  border-left: 1px solid#ddd;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  color: #777;
+}
+
+.filters > .button-active {
+  background: black;
+  color: white;
+}
+
+.filters > .button-active:hover {
+  background: black;
+  color: white;
+}
+
+.filters > button:hover {
+  background: #eee;
+  color: #111;
+}
+
+.module {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
