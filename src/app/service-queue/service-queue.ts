@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceCard } from '../service-card/service-card';
+import { ServiceCard } from '../components/service-card/service-card';
 
 @Component({
   selector: 'app-service-queue',
