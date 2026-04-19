@@ -166,7 +166,7 @@ button:hover {
 
 .note-block > div:last-child {
   background-color: #f5f5f5;
-  flex: 5;
+  flex: 7;
 }
 
 .contact-item {
@@ -180,10 +180,72 @@ button:hover {
   text-transform: uppercase;
   font-size: 0.6rem;
   color: #999;
+  width: 64px;
 }
 
 .contact-item > div:last-child {
   font-size: 0.7rem;
   font-family: monospace;
   color: #222;
+}
+
+.note-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.note-input,
+.hours-input {
+  border: 1px solid #aaa;
+  border-right: none;
+  line-height: 1.75rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  flex-grow: 1;
+}
+
+.button-enter {
+  color: #eee;
+  background: #111;
+  border: none;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.button-enter:hover {
+  background: #444;
+  border: none;
+  color: #eee;
+}
+
+.button-close {
+  height: 100%;
+  font-size: 0.9rem;
+  border-left: none;
+  padding: 0 0.6rem;
+}
+
+.button-close:hover {
+  border-left: none;
+}
+
+.hours-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.units {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: #888;
+  background: #ddd;
+  height: 100%;
+  border: 1px solid #aaa;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.6rem;
 }

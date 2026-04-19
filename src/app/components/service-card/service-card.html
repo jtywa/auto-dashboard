@@ -59,14 +59,25 @@
         </div>
         <div>asdf</div>
       </div>
-      <button>+ Add note</button>
+      <!-- <button>+ Add note</button> -->
+      <div class="note-input-container">
+        <input type="text" class="note-input" placeholder="Type a note..." />
+        <button class="button-enter">Post</button>
+        <button class="button-close">⨯</button>
+      </div>
     </div>
     <div class="right">
       <div class="expanded-label">Log Hours</div>
       <div style="font-family: monospace; font-size: 0.7rem; color: #999">
         1h - Taylor B. @ 03:31 PM
       </div>
-      <button>+ Log hours</button>
+      <!-- <button>+ Log hours</button> -->
+      <div class="hours-input-container">
+        <div class="units">Hours</div>
+        <input class="hours-input" value="0.25" step="0.25" type="number" name="" id="" />
+        <button class="button-enter">Save</button>
+        <button class="button-close">⨯</button>
+      </div>
       <div class="expanded-label">Customer</div>
       <div class="contact-item">
         <div>Name</div>
