@@ -1,7 +1,7 @@
 <div class="header">
   <div>Service Queue</div>
   <div>
-    <div>Saturday, April 18, 2026</div>
+    <div>{{ today | date: 'fullDate' }}</div>
     <button (click)="toggleCheckIn()">+ Check In Vehicle</button>
   </div>
 </div>

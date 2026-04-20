@@ -2,25 +2,26 @@
   <div class="metrics">
     <div class="card">
       <div class="card-label">Total Vehicles</div>
-      <div class="card-number">5</div>
+      <div class="card-number">{{ workOrders.length }}</div>
     </div>
     <div class="card">
       <div class="card-label">Waiting</div>
-      <div class="card-number">2</div>
+      <div class="card-number">{{ waitingCount }}</div>
     </div>
     <div class="card">
       <div class="card-label">In Progress</div>
-      <div class="card-number">2</div>
+      <div class="card-number">{{ inProgressCount }}</div>
     </div>
     <div class="card">
       <div class="card-label">Completed</div>
-      <div class="card-number">1</div>
+      <div class="card-number">{{ completedCount }}</div>
     </div>
     <div class="card">
       <div class="card-label">Hours Backlog</div>
-      <div class="card-number">8.0</div>
+      <div class="card-number">{{ totalEstimatedHours }}</div>
     </div>
     <div class="card">
+      <!-- TODO: make this dynamic -->
       <div class="card-label">My Active Jobs</div>
       <div class="card-number">1</div>
     </div>
@@ -38,7 +39,9 @@
         <button>In progress</button>
         <button>Done</button>
       </div>
-      <app-service-card />
+      @for (order of workOrders; track order.id) {
+        <app-service-card [order]="order" />
+      }
     </div>
   </div>
 

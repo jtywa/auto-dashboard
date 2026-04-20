@@ -23,3 +23,12 @@ button {
   line-height: 1.25rem;
   margin-bottom: 0.25rem;
 }
+
+input {
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: black !important;
+}

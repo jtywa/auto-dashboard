@@ -131,7 +131,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex-grow: 1;
+  flex: 1 1 0;
   gap: 0.5rem;
 }
 
@@ -193,7 +193,7 @@ button:hover {
   padding: 0 0.5rem;
   font-size: 0.75rem;
   font-family: monospace;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .button-enter {

@@ -2,99 +2,129 @@
   <div class="card">
     <div class="left">
       <div class="car-info">
-        <div>2025</div>
-        <div>Toyota Camry</div>
+        <div>{{ order().year }}</div>
+        <div>{{ order().make }} {{ order().model }}</div>
         <div class="status">In Progress</div>
       </div>
-      <div class="service">Oil change + tire rotation</div>
+      <div class="service">{{ order().service }}</div>
       <div class="entries">
         <div class="entry">
           <div>Customer</div>
-          <div>James Whitfield</div>
+          <div>{{ order().customer.name }}</div>
         </div>
         <div class="entry">
           <div>Phone</div>
-          <div>(555) 123-4567</div>
+          <div>{{ order().customer.phone }}</div>
         </div>
         <div class="entry">
           <div>Check-in</div>
-          <div>8:22 AM</div>
+          <div>{{ order().checkInTime }}</div>
         </div>
         <div class="entry">
           <div>Assigned to</div>
-          <div>Taylor B.</div>
+          <div>{{ order().assignedTo }}</div>
         </div>
       </div>
     </div>
     <div class="right">
       <div class="time">
         <div>
-          <span style="font-size: 1.75rem; font-weight: bold">1.5</span
+          <span style="font-size: 1.75rem; font-weight: bold">{{ order().estimatedHours }}</span
           ><span style="color: #777; font-size: 0.8rem">h</span>
         </div>
-        <div style="font-family: monospace; color: #aaa">1.0h logged</div>
+        <div style="font-family: monospace; color: #aaa">{{ order().loggedHours }}h logged</div>
         <div class="progress-bar">
           <div
             class="progress"
-            style="height: 2px; width: 33.3%; background-color: rgb(33, 62, 155)"
+            [style.width.%]="(order().loggedHours / order().estimatedHours) * 100"
+            style="height: 2px; width: 33%; background-color: rgb(33, 62, 155)"
           ></div>
         </div>
       </div>
       <div class="buttons">
+        <!-- TODO: conditional button depending on job state -->
         <button class="button-green">✓ Mark Done</button>
-        <button>Log Hours</button>
-        <button>Notes</button>
-        <button style="line-height: 0; font-size: 1.1rem">▾</button>
+        <button (click)="focusHoursInput()">Log Hours</button>
+        <button (click)="focusNoteInput()">Add Note</button>
+        <button (click)="toggleShowExpandedInfo()" style="line-height: 0; font-size: 1.1rem">
+          @if (showExpandedInfo()) {
+            ▴
+          } @else {
+            ▾
+          }
+        </button>
       </div>
     </div>
   </div>
-  <div class="expanded-info">
-    <div class="left">
-      <div class="category-label">Job Notes (0)</div>
-      <!-- Notes go here -->
-      <div class="note-block">
-        <div>
-          <div>Taylor B.</div>
-          <div style="font-size: 0.6rem; line-height: 1rem; color: #888">03:31 PM</div>
+
+  @if (showExpandedInfo()) {
+    <div class="expanded-info">
+      <div class="left">
+        <div class="category-label">Job Notes ({{ order().notes.length }})</div>
+        @for (note of order().notes; track $index) {
+          <div class="note-block">
+            <div>
+              <div>{{ note.author }}</div>
+              <div style="font-size: 0.6rem; line-height: 1rem; color: #888">{{ note.time }}</div>
+            </div>
+            <div>{{ note.text }}</div>
+          </div>
+        }
+        @if (showNoteInput()) {
+          <div class="note-input-container">
+            <input #noteInput type="text" class="note-input" placeholder="Type a note..." />
+            <button class="button-enter">Post</button>
+            <button (click)="showNoteInput.set(false)" class="button-close">⨯</button>
+          </div>
+        } @else {
+          <button (click)="showNoteInput.set(true)">+ Add note</button>
+        }
+      </div>
+      <div class="right">
+        <div class="category-label">Log Hours</div>
+        @for (log of order().hourLogs; track $index) {
+          <div style="font-family: monospace; font-size: 0.7rem; color: #999">
+            {{ log.hours }}h - {{ log.author }} @ {{ log.time }}
+          </div>
+        }
+
+        @if (showHoursInput()) {
+          <div class="hours-input-container">
+            <div class="units">Hours</div>
+            <input
+              #hoursInput
+              class="hours-input"
+              value="0.25"
+              step="0.25"
+              type="number"
+              name=""
+              id=""
+            />
+            <button class="button-enter">Save</button>
+            <button (click)="showHoursInput.set(false)" class="button-close">⨯</button>
+          </div>
+        } @else {
+          <button (click)="showHoursInput.set(true)">+ Log hours</button>
+        }
+
+        <div class="category-label">Customer</div>
+        <div class="contact-item">
+          <div>Name</div>
+          <div>{{ order().customer.name }}</div>
         </div>
-        <div>asdf</div>
-      </div>
-      <!-- <button>+ Add note</button> -->
-      <div class="note-input-container">
-        <input type="text" class="note-input" placeholder="Type a note..." />
-        <button class="button-enter">Post</button>
-        <button class="button-close">⨯</button>
-      </div>
-    </div>
-    <div class="right">
-      <div class="category-label">Log Hours</div>
-      <div style="font-family: monospace; font-size: 0.7rem; color: #999">
-        1h - Taylor B. @ 03:31 PM
-      </div>
-      <!-- <button>+ Log hours</button> -->
-      <div class="hours-input-container">
-        <div class="units">Hours</div>
-        <input class="hours-input" value="0.25" step="0.25" type="number" name="" id="" />
-        <button class="button-enter">Save</button>
-        <button class="button-close">⨯</button>
-      </div>
-      <div class="category-label">Customer</div>
-      <div class="contact-item">
-        <div>Name</div>
-        <div>Maria Santos</div>
-      </div>
-      <div class="contact-item">
-        <div>Phone</div>
-        <div>(214) 555-0391</div>
-      </div>
-      <div class="contact-item">
-        <div>Email</div>
-        <div>msantos@email.com</div>
-      </div>
-      <div class="contact-item">
-        <div>Check-in</div>
-        <div>8:22 AM</div>
+        <div class="contact-item">
+          <div>Phone</div>
+          <div>{{ order().customer.phone }}</div>
+        </div>
+        <div class="contact-item">
+          <div>Email</div>
+          <div>{{ order().customer.email }}</div>
+        </div>
+        <div class="contact-item">
+          <div>Check-in</div>
+          <div>{{ order().checkInTime }}</div>
+        </div>
       </div>
     </div>
-  </div>
+  }
 </div>
