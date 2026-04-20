@@ -4,7 +4,17 @@
       <div class="car-info">
         <div>{{ order().year }}</div>
         <div>{{ order().make }} {{ order().model }}</div>
-        <div class="status">In Progress</div>
+        @switch (order().status) {
+          @case ('waiting') {
+            <div class="status status-waiting">Waiting</div>
+          }
+          @case ('inprogress') {
+            <div class="status status-inprogress">In Progress</div>
+          }
+          @case ('complete') {
+            <div class="status status-complete">Complete</div>
+          }
+        }
       </div>
       <div class="service">{{ order().service }}</div>
       <div class="entries">

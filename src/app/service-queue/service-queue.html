@@ -6,15 +6,15 @@
     </div>
     <div class="card">
       <div class="card-label">Waiting</div>
-      <div class="card-number">{{ waitingCount }}</div>
+      <div class="card-number">{{ waitingOrders().length }}</div>
     </div>
     <div class="card">
       <div class="card-label">In Progress</div>
-      <div class="card-number">{{ inProgressCount }}</div>
+      <div class="card-number">{{ inProgressOrders().length }}</div>
     </div>
     <div class="card">
       <div class="card-label">Completed</div>
-      <div class="card-number">{{ completedCount }}</div>
+      <div class="card-number">{{ completeOrders().length }}</div>
     </div>
     <div class="card">
       <div class="card-label">Hours Backlog</div>
@@ -30,17 +30,56 @@
   <div>
     <div class="title">
       <div>ACTIVE QUEUE</div>
-      <div>4 jobs</div>
+      <div>{{ activeOrders().length }} jobs</div>
     </div>
     <div class="module">
       <div class="filters">
-        <button class="button-active">All active</button>
-        <button>Waiting</button>
-        <button>In progress</button>
-        <button>Done</button>
+        <button
+          (click)="selectedFilter.set('active')"
+          [class.button-active]="selectedFilter() === 'active'"
+        >
+          All active
+        </button>
+        <button
+          (click)="selectedFilter.set('waiting')"
+          [class.button-active]="selectedFilter() === 'waiting'"
+        >
+          Waiting
+        </button>
+        <button
+          (click)="selectedFilter.set('inprogress')"
+          [class.button-active]="selectedFilter() === 'inprogress'"
+        >
+          In progress
+        </button>
+        <button
+          (click)="selectedFilter.set('complete')"
+          [class.button-active]="selectedFilter() === 'complete'"
+        >
+          Complete
+        </button>
       </div>
-      @for (order of workOrders; track order.id) {
-        <app-service-card [order]="order" />
+      @switch (selectedFilter()) {
+        @case ('active') {
+          @for (order of activeOrders(); track order.id) {
+            <app-service-card [order]="order" />
+          }
+        }
+        @case ('waiting') {
+          @for (order of waitingOrders(); track order.id) {
+            <app-service-card [order]="order" />
+          }
+        }
+        @case ('inprogress') {
+          @for (order of inProgressOrders(); track order.id) {
+            <app-service-card [order]="order" />
+          }
+        }
+        @case ('complete') {
+          @for (order of completeOrders(); track order.id) {
+            <app-service-card [order]="order" />
+          }
+        }
       }
     </div>
   </div>

@@ -56,13 +56,28 @@
 
 /* status badge */
 .status {
-  border: 1px solid rgb(33, 62, 155);
-  color: rgb(33, 62, 155);
-  background-color: rgb(227, 232, 250);
   padding: 0.25rem 0.5rem;
   font-size: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
+}
+
+.status-waiting {
+  border: 1px solid rgb(155, 72, 33);
+  color: rgb(155, 72, 33);
+  background-color: rgb(250, 232, 227);
+}
+
+.status-inprogress {
+  border: 1px solid rgb(33, 62, 155);
+  color: rgb(33, 62, 155);
+  background-color: rgb(227, 232, 250);
+}
+
+.status-complete {
+  border: 1px solid rgb(33, 155, 84);
+  color: rgb(33, 155, 84);
+  background-color: rgb(242, 247, 242);
 }
 
 .service,
