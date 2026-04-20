@@ -5,7 +5,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(round(calc(-50%), 1px), round(calc(-50%), 1px));
   display: flex;
   justify-content: center;
   align-items: center;

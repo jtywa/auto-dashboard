@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ServiceCard } from '../components/service-card/service-card';
 import { CheckinModal } from '../components/checkin-modal/checkin-modal';
+import { signal } from '@angular/core';
+import { UiState } from '../core/services/uistate.service';
 
 @Component({
   selector: 'app-service-queue',
@@ -8,4 +10,6 @@ import { CheckinModal } from '../components/checkin-modal/checkin-modal';
   templateUrl: './service-queue.html',
   styleUrl: './service-queue.css',
 })
-export class ServiceQueue {}
+export class ServiceQueue {
+  constructor(public uiState: UiState) {}
+}

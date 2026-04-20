@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiState } from '../../core/services/uistate.service';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  constructor(private uiState: UiState) {}
+
+  toggleCheckIn() {
+    this.uiState.toggleShowCheckIn();
+  }
+}
