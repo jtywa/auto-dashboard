@@ -15,7 +15,7 @@ import { computed } from '@angular/core';
 export class ServiceQueue {
   constructor(public uiState: UiState) {}
 
-  workOrders: WorkOrder[] = [
+  workOrders = signal<WorkOrder[]>([
     {
       id: 1,
       year: 2021,
@@ -81,18 +81,26 @@ export class ServiceQueue {
       ],
       hourLogs: [{ hours: 1.5, author: 'Sam R.', time: '9:30 AM' }],
     },
-  ];
+  ]);
 
   selectedFilter = signal('active');
 
-  activeOrders = computed(() => this.workOrders.filter((o: WorkOrder) => o.status !== 'complete'));
-  waitingOrders = computed(() => this.workOrders.filter((o: WorkOrder) => o.status === 'waiting'));
+  activeOrders = computed(() =>
+    this.workOrders().filter((o: WorkOrder) => o.status !== 'complete'),
+  );
+  waitingOrders = computed(() =>
+    this.workOrders().filter((o: WorkOrder) => o.status === 'waiting'),
+  );
   inProgressOrders = computed(() =>
-    this.workOrders.filter((o: WorkOrder) => o.status === 'inprogress'),
+    this.workOrders().filter((o: WorkOrder) => o.status === 'inprogress'),
   );
   completeOrders = computed(() =>
-    this.workOrders.filter((o: WorkOrder) => o.status === 'complete'),
+    this.workOrders().filter((o: WorkOrder) => o.status === 'complete'),
   );
 
-  totalEstimatedHours = this.workOrders.reduce((sum, o) => sum + o.estimatedHours, 0);
+  totalEstimatedHours = this.workOrders().reduce((sum, o) => sum + o.estimatedHours, 0);
+
+  setStatus(id: number, status: string) {
+    this.workOrders.update((orders) => orders.map((o) => (o.id === id ? { ...o, status } : o)));
+  }
 }

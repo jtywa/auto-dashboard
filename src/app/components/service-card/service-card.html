@@ -1,4 +1,9 @@
-<div class="container">
+<div
+  class="container"
+  [ngClass]="{
+    faded: order().status === 'complete',
+  }"
+>
   <div class="card">
     <div class="left">
       <div class="car-info">
@@ -52,8 +57,23 @@
         </div>
       </div>
       <div class="buttons">
-        <!-- TODO: conditional button depending on job state -->
-        <button class="button-green">✓ Mark Done</button>
+        @switch (order().status) {
+          @case ('waiting') {
+            <button (click)="statusChange.emit({ id: order().id, status: 'inprogress' })">
+              ▶ Start
+            </button>
+          }
+          @case ('inprogress') {
+            <button
+              (click)="statusChange.emit({ id: order().id, status: 'complete' })"
+              class="button-green"
+            >
+              ✓ Mark Done
+            </button>
+          }
+          @case ('complete') {}
+        }
+
         <button (click)="focusHoursInput()">Log Hours</button>
         <button (click)="focusNoteInput()">Add Note</button>
         <button (click)="toggleShowExpandedInfo()" style="line-height: 0; font-size: 1.1rem">

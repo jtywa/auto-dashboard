@@ -1,10 +1,11 @@
 import { Component, signal, ViewChild, ElementRef } from '@angular/core';
 import { WorkOrder } from '../../models/work-order.model';
-import { input } from '@angular/core';
+import { input, output } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-service-card',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './service-card.html',
   styleUrl: './service-card.css',
 })
@@ -40,4 +41,6 @@ export class ServiceCard {
       this.hoursInput.nativeElement.focus();
     }, 0);
   }
+
+  statusChange = output<{ id: number; status: string }>();
 }

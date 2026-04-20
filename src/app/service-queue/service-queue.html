@@ -62,7 +62,10 @@
       @switch (selectedFilter()) {
         @case ('active') {
           @for (order of activeOrders(); track order.id) {
-            <app-service-card [order]="order" />
+            <app-service-card
+              [order]="order"
+              (statusChange)="setStatus($event.id, $event.status)"
+            />
           }
         }
         @case ('waiting') {
