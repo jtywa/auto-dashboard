@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UiState } from '../../core/services/uistate.service';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { output } from '@angular/core';
 import { WorkOrder } from '../../models/work-order.model';
+import { ToastService } from '../../core/services/toast.service';
 
 function getTimestamp(): string {
   return new Date().toLocaleTimeString('en-US', {
@@ -21,6 +22,8 @@ function getTimestamp(): string {
 })
 export class CheckinModal {
   constructor(private uiState: UiState) {}
+
+  toastService = inject(ToastService);
 
   years = Array.from({ length: 27 }, (_, i) => 2026 - i);
 
@@ -54,6 +57,8 @@ export class CheckinModal {
       };
       this.ordersChange.emit({ order: newOrder });
       this.closeModal();
+    } else {
+      this.toastService.show('Complete all fields', 'failure');
     }
   }
 

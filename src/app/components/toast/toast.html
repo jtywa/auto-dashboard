@@ -1,0 +1,23 @@
+<div class="toast-container">
+  @for (toast of toastService.toasts(); track toast.id) {
+    <div class="toast" [class]="toast.type" [class.removing]="toast.removing">
+      <div>
+        @switch (toast.type) {
+          @case ('success') {
+            <div>✔</div>
+          }
+          @case ('warning') {
+            <div>⚠</div>
+          }
+          @case ('failure') {
+            <div>⛝</div>
+          }
+          @case ('generic') {
+            <div>🛈</div>
+          }
+        }
+      </div>
+      <div>{{ toast.message }}</div>
+    </div>
+  }
+</div>

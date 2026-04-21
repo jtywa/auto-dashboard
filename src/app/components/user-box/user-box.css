@@ -5,16 +5,16 @@
   padding: 1rem;
   gap: 1rem;
   transition: background-color 0.1s;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.user-box:hover {
+/* .user-box:hover {
   background-color: #252221;
 }
 
 .user-box:hover .avatar {
   background-color: #383432;
-}
+} */
 
 .avatar {
   background-color: #252221;

@@ -24,7 +24,7 @@
 .header {
   background: #111;
   color: #eee;
-  padding: 1.25rem;
+  padding: 1rem 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

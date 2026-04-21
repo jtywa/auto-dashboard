@@ -71,12 +71,7 @@
             </button>
           }
           @case ('inprogress') {
-            <button
-              (click)="statusChange.emit({ id: order().id, status: 'complete' })"
-              class="button-green"
-            >
-              ✓ Mark Done
-            </button>
+            <button (click)="completeWorkOrder()" class="button-green">✓ Mark Done</button>
           }
           @case ('complete') {}
         }
