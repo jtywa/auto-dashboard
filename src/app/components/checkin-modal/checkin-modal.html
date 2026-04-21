@@ -13,15 +13,27 @@
         <div class="field-row">
           <div class="field">
             <div class="field-label">Year</div>
-            <input type="number" placeholder="2022" name="year" ngModel />
+            <select required name="" id="">
+              <option value="" disabled selected hidden>Year</option>
+              @for (year of years; track year) {
+                <option [value]="year">{{ year }}</option>
+              }
+            </select>
+            <!-- <input type="number" placeholder="2022" name="year" ngModel /> -->
           </div>
           <div class="field">
             <div class="field-label">Make</div>
-            <input type="text" placeholder="Toyota" name="make" ngModel />
+            <select disabled name="" id="">
+              <option value="">Make</option>
+            </select>
+            <!-- <input type="text" placeholder="Toyota" name="make" ngModel /> -->
           </div>
           <div class="field">
             <div class="field-label">Model</div>
-            <input type="text" placeholder="Camry" name="model" ngModel />
+            <select disabled name="" id="">
+              <option value="">Model</option>
+            </select>
+            <!-- <input type="text" placeholder="Camry" name="model" ngModel /> -->
           </div>
         </div>
 

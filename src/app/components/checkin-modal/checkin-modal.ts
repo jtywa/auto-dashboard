@@ -22,6 +22,8 @@ function getTimestamp(): string {
 export class CheckinModal {
   constructor(private uiState: UiState) {}
 
+  years = Array.from({ length: 27 }, (_, i) => 2026 - i);
+
   closeModal() {
     // TODO: clear fields
     this.uiState.toggleShowCheckIn();
