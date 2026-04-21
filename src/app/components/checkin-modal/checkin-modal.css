@@ -88,6 +88,11 @@
   font-size: 0.75rem;
   font-family: monospace;
   flex-grow: 1;
+  background: #ffffff;
+}
+
+input::placeholder {
+  color: #bbb;
 }
 
 .space {

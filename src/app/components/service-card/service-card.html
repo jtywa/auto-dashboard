@@ -37,7 +37,14 @@
         </div>
         <div class="entry">
           <div>Assigned to</div>
-          <div>{{ order().assignedTo }}</div>
+          @if (order().assignedTo) {
+            <div>{{ order().assignedTo }}</div>
+          } @else {
+            <!-- TODO: Replace hardcoded value with signed in user -->
+            <button (click)="assignedToChange.emit({ id: order().id, name: 'Justin T.' })">
+              Assign to me
+            </button>
+          }
         </div>
       </div>
     </div>
@@ -103,7 +110,7 @@
         @if (showNoteInput()) {
           <div class="note-input-container">
             <input #noteInput type="text" class="note-input" placeholder="Type a note..." />
-            <button class="button-enter">Post</button>
+            <button (click)="submitNote(noteInput.value)" class="button-enter">Post</button>
             <button (click)="showNoteInput.set(false)" class="button-close">⨯</button>
           </div>
         } @else {
@@ -130,7 +137,7 @@
               name=""
               id=""
             />
-            <button class="button-enter">Save</button>
+            <button (click)="submitHourLog(+hoursInput.value)" class="button-enter">Save</button>
             <button (click)="showHoursInput.set(false)" class="button-close">⨯</button>
           </div>
         } @else {

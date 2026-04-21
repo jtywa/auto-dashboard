@@ -5,6 +5,7 @@
 
 body {
   width: 100dvw;
+  max-height: 80dvh;
   overflow: hidden;
 }
 
@@ -31,4 +32,12 @@ input {
 input:focus {
   outline: none;
   border-color: black !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  scrollbar-color: #888 transparent;
 }

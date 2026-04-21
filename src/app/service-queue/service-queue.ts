@@ -3,8 +3,9 @@ import { ServiceCard } from '../components/service-card/service-card';
 import { CheckinModal } from '../components/checkin-modal/checkin-modal';
 import { signal } from '@angular/core';
 import { UiState } from '../core/services/uistate.service';
-import { WorkOrder } from '../models/work-order.model';
+import { HourLog, WorkOrder } from '../models/work-order.model';
 import { computed } from '@angular/core';
+import { Note } from '../models/work-order.model';
 
 @Component({
   selector: 'app-service-queue',
@@ -18,7 +19,7 @@ export class ServiceQueue {
   workOrders = signal<WorkOrder[]>([
     {
       id: 1,
-      year: 2021,
+      year: 2023,
       make: 'Toyota',
       model: 'Camry',
       status: 'inprogress',
@@ -29,7 +30,7 @@ export class ServiceQueue {
         email: 'jwhitfield@email.com',
       },
       checkInTime: '7:58 AM',
-      assignedTo: 'Taylor B.',
+      assignedTo: '',
       estimatedHours: 1.5,
       loggedHours: 1,
       notes: [
@@ -42,7 +43,7 @@ export class ServiceQueue {
       year: 2019,
       make: 'Ford',
       model: 'F-150',
-      status: 'waiting',
+      status: 'inprogress',
       service: 'Transmission fluid flush',
       customer: {
         name: 'Maria Santos',
@@ -81,6 +82,44 @@ export class ServiceQueue {
       ],
       hourLogs: [{ hours: 1.5, author: 'Sam R.', time: '9:30 AM' }],
     },
+    {
+      id: 4,
+      year: 2018,
+      make: 'Honda',
+      model: 'Pilot',
+      status: 'waiting',
+      service: 'Air filter change',
+      customer: {
+        name: 'Seong Park',
+        phone: '(972) 525-2473',
+        email: 'spark@email.com',
+      },
+      checkInTime: '8:03 AM',
+      assignedTo: 'Sam R.',
+      estimatedHours: 1,
+      loggedHours: 0,
+      notes: [],
+      hourLogs: [],
+    },
+    {
+      id: 5,
+      year: 2020,
+      make: 'Cadillac',
+      model: 'Escalade',
+      status: 'waiting',
+      service: 'Diagnostic (engine sound)',
+      customer: {
+        name: 'Jocelyn Gutierrez',
+        phone: '(817) 551-9531',
+        email: 'jgutierrez@email.com',
+      },
+      checkInTime: '8:54 AM',
+      assignedTo: 'Taylor B.',
+      estimatedHours: 1,
+      loggedHours: 0,
+      notes: [],
+      hourLogs: [],
+    },
   ]);
 
   selectedFilter = signal('active');
@@ -102,5 +141,28 @@ export class ServiceQueue {
 
   setStatus(id: number, status: string) {
     this.workOrders.update((orders) => orders.map((o) => (o.id === id ? { ...o, status } : o)));
+  }
+
+  setAssignedTo(id: number, name: string) {
+    this.workOrders.update((orders) =>
+      orders.map((o) => (o.id === id ? { ...o, assignedTo: name } : o)),
+    );
+  }
+
+  setNotes(id: number, note: Note) {
+    this.workOrders.update((orders) =>
+      orders.map((o) => (o.id === id ? { ...o, notes: [...o.notes, note] } : o)),
+    );
+  }
+
+  setHourLog(id: number, hourLog: HourLog) {
+    console.log('setHourLog()');
+    this.workOrders.update((orders) =>
+      orders.map((o) => (o.id === id ? { ...o, hourLogs: [...o.hourLogs, hourLog] } : o)),
+    );
+  }
+
+  setOrders(order: WorkOrder) {
+    this.workOrders.update((orders) => [...orders, order]);
   }
 }

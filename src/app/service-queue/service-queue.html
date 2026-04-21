@@ -2,7 +2,7 @@
   <div class="metrics">
     <div class="card">
       <div class="card-label">Total Vehicles</div>
-      <div class="card-number">{{ workOrders.length }}</div>
+      <div class="card-number">{{ workOrders().length }}</div>
     </div>
     <div class="card">
       <div class="card-label">Waiting</div>
@@ -64,7 +64,10 @@
           @for (order of activeOrders(); track order.id) {
             <app-service-card
               [order]="order"
+              (assignedToChange)="setAssignedTo($event.id, $event.name)"
               (statusChange)="setStatus($event.id, $event.status)"
+              (notesChange)="setNotes($event.id, $event.note)"
+              (hourLogChange)="setHourLog($event.id, $event.hourLog)"
             />
           }
         }
@@ -86,8 +89,9 @@
       }
     </div>
   </div>
+  <div class="space"></div>
 
   @if (uiState.showCheckIn()) {
-    <app-checkin-modal />
+    <app-checkin-modal (ordersChange)="setOrders($event.order)" />
   }
 </div>
