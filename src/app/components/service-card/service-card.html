@@ -66,9 +66,7 @@
       <div class="buttons">
         @switch (order().status) {
           @case ('waiting') {
-            <button (click)="statusChange.emit({ id: order().id, status: 'inprogress' })">
-              ▶ Start
-            </button>
+            <button (click)="startWorkOrder()">▶ Start</button>
           }
           @case ('inprogress') {
             <button (click)="completeWorkOrder()" class="button-green">✓ Mark Done</button>

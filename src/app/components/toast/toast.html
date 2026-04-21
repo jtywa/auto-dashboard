@@ -4,16 +4,16 @@
       <div>
         @switch (toast.type) {
           @case ('success') {
-            <div>✔</div>
+            <div style="font-size: 1.25rem">✅</div>
           }
           @case ('warning') {
-            <div>⚠</div>
+            <div style="font-size: 1.25rem">⚠️</div>
           }
           @case ('failure') {
-            <div>⛝</div>
+            <div style="font-size: 1.25rem">⛔</div>
           }
           @case ('generic') {
-            <div>🛈</div>
+            <div style="font-size: 1.25rem">ℹ️</div>
           }
         }
       </div>

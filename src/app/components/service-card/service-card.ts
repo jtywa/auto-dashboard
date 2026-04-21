@@ -79,6 +79,11 @@ export class ServiceCard {
     }
   }
 
+  startWorkOrder() {
+    this.toastService.show('Started work order', 'generic');
+    this.statusChange.emit({ id: this.order().id, status: 'inprogress' });
+  }
+
   completeWorkOrder() {
     this.toastService.show('Completed work order', 'success');
     this.statusChange.emit({ id: this.order().id, status: 'complete' });
