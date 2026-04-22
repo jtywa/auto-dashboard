@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, effect } from '@angular/core';
 import { ServiceCard } from '../components/service-card/service-card';
 import { CheckinModal } from '../components/checkin-modal/checkin-modal';
 import { signal } from '@angular/core';
@@ -14,7 +14,13 @@ import { Note } from '../models/work-order.model';
   styleUrl: './service-queue.css',
 })
 export class ServiceQueue {
-  constructor(public uiState: UiState) {}
+  protected uiState = inject(UiState);
+
+  constructor() {
+    effect(() => {
+      this.uiState.orderCount.set(this.workOrders().length);
+    });
+  }
 
   workOrders = signal<WorkOrder[]>([
     {
@@ -135,6 +141,9 @@ export class ServiceQueue {
   );
   completeOrders = computed(() =>
     this.workOrders().filter((o: WorkOrder) => o.status === 'complete'),
+  );
+  myOrders = computed(() =>
+    this.workOrders().filter((o: WorkOrder) => o.assignedTo === 'Justin T.'),
   );
 
   totalEstimatedHours = this.workOrders().reduce((sum, o) => sum + o.estimatedHours, 0);

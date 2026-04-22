@@ -21,9 +21,8 @@
       <div class="card-number">{{ totalEstimatedHours }}</div>
     </div>
     <div class="card">
-      <!-- TODO: make this dynamic -->
       <div class="card-label">My Active Jobs</div>
-      <div class="card-number">1</div>
+      <div class="card-number">{{ myOrders().length }}</div>
     </div>
   </div>
 

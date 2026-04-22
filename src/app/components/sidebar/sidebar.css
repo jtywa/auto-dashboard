@@ -29,7 +29,7 @@ section {
   padding: 0 1rem;
   font-family: monospace;
   justify-content: center;
-  text-transform: uppercase;
+
   flex-direction: column;
 }
 
@@ -46,4 +46,5 @@ section {
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.125rem;
   line-height: 1.5rem;
+  text-transform: uppercase;
 }

@@ -10,3 +10,17 @@
   max-height: 100%;
   background: #f3f3f3;
 }
+
+.logo {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  opacity: 40%;
+  height: 40px;
+  width: 40px;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 60%;
+}

@@ -1,14 +1,14 @@
 <div class="sidebar">
   <div>
     <div class="title-box">
-      <div>AUTOMATA</div>
+      <div>ANGULAR AUTO</div>
       <div>Service Dashboard</div>
     </div>
 
     <section>
       <div class="label">Work</div>
       <!-- TODO: Use real count -->
-      <app-nav-button label="Service Queue" [current]="true" [count]="5" />
+      <app-nav-button label="Service Queue" [current]="true" [count]="uiState.orderCount()" />
     </section>
     <section>
       <div class="label">Team</div>

@@ -58,8 +58,6 @@ export class ServiceCard {
     if (text) {
       this.showNoteInput.set(false);
       const now = getTimestamp();
-      // TODO: Replace hardcoded name with logged-in user's name
-      // TODO: Add input validation
       const newNote = { author: 'Justin T.', time: now, text: text };
       this.notesChange.emit({ id: this.order().id, note: newNote });
       this.toastService.show('Added a new note', 'success');

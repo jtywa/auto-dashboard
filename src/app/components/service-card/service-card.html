@@ -40,7 +40,6 @@
           @if (order().assignedTo) {
             <div>{{ order().assignedTo }}</div>
           } @else {
-            <!-- TODO: Replace hardcoded value with signed in user -->
             <button (click)="assignedToChange.emit({ id: order().id, name: 'Justin T.' })">
               Assign to me
             </button>
