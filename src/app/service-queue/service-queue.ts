@@ -148,7 +148,7 @@ export class ServiceQueue {
     this.workOrders().filter((o: WorkOrder) => o.assignedTo === 'Justin T.'),
   );
 
-  totalEstimatedHours = this.workOrders().reduce((sum, o) => sum + o.estimatedHours, 0);
+  totalEstimatedHours = this.activeOrders().reduce((sum, o) => sum + o.estimatedHours, 0);
 
   setStatus(id: number, status: string) {
     this.workOrders.update((orders) => orders.map((o) => (o.id === id ? { ...o, status } : o)));
