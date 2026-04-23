@@ -56,6 +56,7 @@ export class CheckinModal {
         hourLogs: [],
       };
       this.ordersChange.emit({ order: newOrder });
+      this.toastService.show('Added new work order', 'success');
       this.closeModal();
     } else {
       this.toastService.show('Complete all fields', 'failure');

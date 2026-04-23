@@ -68,6 +68,7 @@ export class ServiceCard {
 
   submitHourLog(hours: number) {
     if (hours > 0 && hours % 0.25 === 0) {
+      this.showHoursInput.set(false);
       const now = getTimestamp();
       const newHourLog: HourLog = { author: 'Justin T.', hours: hours, time: now };
       this.hourLogChange.emit({ id: this.order().id, hourLog: newHourLog });

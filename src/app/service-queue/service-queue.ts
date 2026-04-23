@@ -6,6 +6,7 @@ import { UiState } from '../core/services/uistate.service';
 import { HourLog, WorkOrder } from '../models/work-order.model';
 import { computed } from '@angular/core';
 import { Note } from '../models/work-order.model';
+import { ToastService } from '../core/services/toast.service';
 
 @Component({
   selector: 'app-service-queue',
@@ -15,6 +16,7 @@ import { Note } from '../models/work-order.model';
 })
 export class ServiceQueue {
   protected uiState = inject(UiState);
+  toastService = inject(ToastService);
 
   constructor() {
     effect(() => {
@@ -153,6 +155,7 @@ export class ServiceQueue {
   }
 
   setAssignedTo(id: number, name: string) {
+    this.toastService.show('Assigned new task to me', 'generic');
     this.workOrders.update((orders) =>
       orders.map((o) => (o.id === id ? { ...o, assignedTo: name } : o)),
     );
