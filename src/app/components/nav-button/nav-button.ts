@@ -18,7 +18,7 @@ export class NavButton {
 
   onClick() {
     if (this.label() !== 'Service Queue') {
-      const message = `${this.label()} Page coming soon`;
+      const message = `Page coming soon`;
       this.toastService.show(message, 'generic');
     }
   }

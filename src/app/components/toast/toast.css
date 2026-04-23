@@ -44,3 +44,9 @@
   color: rgb(33, 127, 155);
   background-color: rgb(242, 245, 247);
 }
+
+.warning {
+  border: 1px solid rgb(155, 123, 33);
+  color: rgb(155, 123, 33);
+  background-color: rgb(247, 246, 242);
+}
