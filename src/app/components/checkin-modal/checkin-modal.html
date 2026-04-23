@@ -11,29 +11,47 @@
         <div class="half-space"></div>
 
         <div class="field-row">
+          <!-- Year -->
           <div class="field">
             <div class="field-label">Year</div>
-            <select required name="" id="">
+            <select required name="year" ngModel (ngModelChange)="onYearChange($event)">
               <option value="" disabled selected hidden>Year</option>
               @for (year of years; track year) {
                 <option [value]="year">{{ year }}</option>
               }
             </select>
-            <!-- <input type="number" placeholder="2022" name="year" ngModel /> -->
           </div>
+
+          <!-- Make -->
           <div class="field">
             <div class="field-label">Make</div>
-            <select disabled name="" id="">
-              <option value="">Make</option>
+            <select
+              required
+              name="make"
+              ngModel
+              [disabled]="!makes.length"
+              (ngModelChange)="onMakeChange($event)"
+            >
+              <option value="" disabled selected hidden>
+                {{ loadingMakes ? 'Loading...' : 'Make' }}
+              </option>
+              @for (make of makes; track make.MakeId) {
+                <option [value]="make.MakeName">{{ make.MakeName }}</option>
+              }
             </select>
-            <!-- <input type="text" placeholder="Toyota" name="make" ngModel /> -->
           </div>
+
+          <!-- Model -->
           <div class="field">
             <div class="field-label">Model</div>
-            <select disabled name="" id="">
-              <option value="">Model</option>
+            <select required name="model" ngModel [disabled]="!models.length">
+              <option value="" disabled selected hidden>
+                {{ loadingModels ? 'Loading...' : 'Model' }}
+              </option>
+              @for (model of models; track model.Model_ID) {
+                <option [value]="model.Model_Name">{{ model.Model_Name }}</option>
+              }
             </select>
-            <!-- <input type="text" placeholder="Camry" name="model" ngModel /> -->
           </div>
         </div>
 
@@ -61,18 +79,51 @@
           </div>
           <div class="field">
             <div class="field-label">Phone Number</div>
-            <input type="tel" placeholder="(817) 551-5794" name="phone" ngModel />
+            <input
+              type="tel"
+              placeholder="(817) 551-5794"
+              name="phone"
+              ngModel
+              phoneFormat
+              required
+              [ngModelOptions]="{ updateOn: 'blur' }"
+              #phone="ngModel"
+              [ngModel]="phone.value"
+              [class.invalid]="phone.invalid && phone.touched"
+            />
           </div>
         </div>
-
+        @if (phone.invalid && phone.touched) {
+          <div class="ghost-container">
+            <div style="justify-self: flex-end" class="field-error">
+              Enter a valid 10-digit phone number
+            </div>
+          </div>
+        }
         <div class="half-space"></div>
 
         <div class="field-row">
           <div class="field">
             <div class="field-label">Email</div>
-            <input type="email" placeholder="jsmith@email.com" name="email" ngModel />
+            <input
+              type="email"
+              placeholder="jsmith@email.com"
+              name="email"
+              ngModel
+              required
+              #email="ngModel"
+              [class.invalid]="email.invalid && email.touched"
+            />
           </div>
         </div>
+
+        @if (email.invalid && email.touched) {
+          <div class="ghost-container">
+            <div style="justify-self: flex-end" class="field-error">
+              Enter a valid email address
+            </div>
+          </div>
+        }
 
         <div class="space"></div>
         <div style="display: flex; gap: 0.25rem; align-items: center">
