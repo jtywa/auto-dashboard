@@ -170,7 +170,11 @@ export class ServiceQueue {
   setHourLog(id: number, hourLog: HourLog) {
     console.log('setHourLog()');
     this.workOrders.update((orders) =>
-      orders.map((o) => (o.id === id ? { ...o, hourLogs: [...o.hourLogs, hourLog] } : o)),
+      orders.map((o) =>
+        o.id === id
+          ? { ...o, hourLogs: [...o.hourLogs, hourLog], loggedHours: o.loggedHours + hourLog.hours }
+          : o,
+      ),
     );
   }
 

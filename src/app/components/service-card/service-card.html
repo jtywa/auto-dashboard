@@ -53,12 +53,22 @@
           <span style="font-size: 1.75rem; font-weight: bold">{{ order().estimatedHours }}</span
           ><span style="color: #777; font-size: 0.8rem">h</span>
         </div>
-        <div style="font-family: monospace; color: #aaa">{{ order().loggedHours }}h logged</div>
+        <div
+          style="font-family: monospace"
+          [style.color]="
+            order().loggedHours > order().estimatedHours ? 'rgba(173, 31, 31, 0.75)' : '#aaa'
+          "
+        >
+          {{ order().loggedHours }}h logged
+        </div>
         <div class="progress-bar">
           <div
             class="progress"
             [style.width.%]="(order().loggedHours / order().estimatedHours) * 100"
-            style="height: 2px; width: 33%; background-color: rgb(33, 62, 155)"
+            [style.background-color]="
+              order().loggedHours > order().estimatedHours ? 'rgb(173, 31, 31)' : 'rgb(33, 62, 155)'
+            "
+            style="height: 2px; width: 33%"
           ></div>
         </div>
       </div>

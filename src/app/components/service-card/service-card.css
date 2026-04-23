@@ -34,7 +34,8 @@
 }
 
 .progress {
-  transition: width 3s ease;
+  transition: width 1s ease;
+  max-width: 100px;
 }
 
 .car-info {

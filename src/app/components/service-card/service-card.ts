@@ -1,6 +1,6 @@
 import { Component, signal, ViewChild, ElementRef, inject } from '@angular/core';
 import { WorkOrder } from '../../models/work-order.model';
-import { input, output } from '@angular/core';
+import { input, output, computed } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Note, HourLog } from '../../models/work-order.model';
 import { ToastService } from '../../core/services/toast.service';
