@@ -41,3 +41,40 @@ input:focus {
 html {
   scrollbar-color: #888 transparent;
 }
+
+.no-select {
+  user-select: none;
+}
+
+.page-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: scroll;
+  max-height: 100%;
+  scrollbar-width: none;
+}
+
+.page-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.page-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.page-container::-webkit-scrollbar-button {
+  display: none;
+}
+
+.page-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.page-container::-webkit-scrollbar {
+  display: none;
+}

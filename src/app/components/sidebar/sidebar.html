@@ -7,12 +7,12 @@
 
     <section>
       <div class="label">Work</div>
-      <app-nav-button label="Service Queue" [current]="true" [count]="uiState.orderCount()" />
+      <app-nav-button path="/" label="Service Queue" [count]="uiState.orderCount()" />
     </section>
     <section>
       <div class="label">Team</div>
-      <app-nav-button label="Technicians (Coming Soon)" />
-      <app-nav-button label="Reports (Coming Soon)" />
+      <app-nav-button path="techs" label="Technicians (Coming Soon)" />
+      <app-nav-button path="reports" label="Reports (Coming Soon)" />
     </section>
   </div>
   <app-user-box />

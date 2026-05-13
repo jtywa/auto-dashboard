@@ -1,4 +1,5 @@
-button {
+.button {
+  background-color: transparent;
   border: none;
   padding: 0.5rem 1.25rem;
   display: flex;
@@ -6,13 +7,8 @@ button {
   align-items: center;
   width: 100%;
   transition: all 0.1s;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.4);
   border-left: 3px solid transparent;
-}
-
-.button {
-  background-color: transparent;
-  opacity: 0.5;
 }
 
 .button-name {
@@ -20,13 +16,14 @@ button {
 }
 
 .button-current {
+  color: rgba(255, 255, 255, 0.9);
   background-color: #252221;
   border-left: 3px solid rgb(255, 255, 255);
 }
 
-button:hover {
+.button:hover {
   background-color: #252221;
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .counter {
@@ -39,4 +36,9 @@ button:hover {
   color: white;
   font-size: 0.6rem;
   font-weight: bold;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

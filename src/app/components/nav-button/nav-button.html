@@ -1,6 +1,11 @@
-<button (click)="onClick()" [ngClass]="[current() ? 'button-current' : 'button']">
+<a
+  routerLink="{{ path() }}"
+  class="button"
+  routerLinkActive="button-current"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
   <div class="button-name">{{ label() }}</div>
   @if (count()) {
     <div class="counter">{{ count() }}</div>
   }
-</button>
+</a>

@@ -2,24 +2,18 @@ import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { input, inject } from '@angular/core';
 import { ToastService } from '../../core/services/toast.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-nav-button',
-  imports: [NgClass],
+  imports: [NgClass, RouterLink, RouterLinkActive],
   templateUrl: './nav-button.html',
   styleUrl: './nav-button.css',
 })
 export class NavButton {
-  current = input<boolean>(false);
   label = input<string>();
   count = input<number>();
+  path = input<string>();
 
   toastService = inject(ToastService);
-
-  onClick() {
-    if (this.label() !== 'Service Queue') {
-      const message = `Page coming soon`;
-      this.toastService.show(message, 'generic');
-    }
-  }
 }
