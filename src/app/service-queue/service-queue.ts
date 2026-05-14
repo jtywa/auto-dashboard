@@ -20,7 +20,7 @@ export class ServiceQueue {
 
   constructor() {
     effect(() => {
-      this.uiState.orderCount.set(this.workOrders().length);
+      this.uiState.orderCount.set(this.activeOrders().length);
     });
   }
 

@@ -113,3 +113,9 @@
   color: #555;
   letter-spacing: 0.025rem;
 }
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+}

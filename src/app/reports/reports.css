@@ -1,0 +1,145 @@
+.card {
+  background: #fcfcfc;
+  padding: 1.25rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #bbb;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 3fr 2fr;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 0.8rem;
+  font-family: monospace;
+  letter-spacing: 0.03rem;
+  line-height: 0.8rem;
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+}
+
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 0.7rem;
+  line-height: 1.25rem;
+  font-family: monospace;
+  color: #777;
+}
+
+.glance-value {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.gap {
+  height: 0.5rem;
+}
+
+.label {
+  font-size: 0.5rem;
+  letter-spacing: 0.025rem;
+  color: #aaa;
+  line-height: 0.3rem;
+  flex: 1;
+}
+
+.bar-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.025rem;
+  color: #aaa;
+  line-height: 0.3rem;
+  flex: 1.5;
+}
+
+.value {
+  flex: 1;
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1rem;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar-value {
+  flex: 1.5;
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1rem;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.blue {
+  background: rgb(50, 84, 112);
+}
+
+.green {
+  background: rgb(50, 112, 50);
+}
+
+.progress {
+  transition: width 1s ease;
+  width: 33%;
+  height: 4px;
+}
+
+.days-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.days {
+  display: flex;
+  gap: 0.25rem;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+
+.day {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0.7;
+  transition: opacity 0.1s ease;
+}
+
+.day > :nth-child(2) {
+  width: 100%;
+  background: rgba(28, 94, 148, 0.8);
+}
+
+.day:hover {
+  opacity: 1;
+}

@@ -1,7 +1,9 @@
 <div class="header">
-  <div>Service Queue</div>
+  <div>{{ title() }}</div>
   <div>
     <div>{{ today | date: 'fullDate' }}</div>
-    <button (click)="toggleCheckIn()">+ Check In Vehicle</button>
+    @if (title() === 'Service Queue') {
+      <button (click)="toggleCheckIn()">+ Check In Vehicle</button>
+    }
   </div>
 </div>
